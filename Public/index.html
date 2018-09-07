@@ -98,34 +98,53 @@
               Task
             </th>
             <th>
+              Type
+            </th>
+            <th>
               Size
             </th>
             <th>
-              Team name
+              Assigned Team
+            </th>
+            <th>
+              Status
+            </th>
+            <th>
+              Started Date
+            </th>
+            <th>
+            Hours Worked
+            </th>
+            <th>
+            % Complete
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr v-for="task in tasks">
             <td>
-              Create a dashboard
+              {{task.title}}
             </td>
             <td>
-              L
+              {{task.type}}
             </td>
             <td>
-              Dancing Foxes
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Build charts
+              {{task.size}}
             </td>
             <td>
-              M
+              {{task.team}}
             </td>
             <td>
-              Walled Terapins
+              {{task.status}}
+            </td>
+            <td>
+              {{task.start_date}}
+            </td>
+            <td>
+              {{task.hours_worked}}
+            </td>
+            <td>
+              {{task.perc_complete}}
             </td>
           </tr>
         </tbody>
@@ -134,9 +153,10 @@
         </tfoot>
       </table>
     </div>
-    <!--  End row 3, tabular data -->
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <div class="row">
+
+      <button v-on:click="log('foo')">Click Me</button>
+    </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/app.js"></script>
