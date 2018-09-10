@@ -1,0 +1,7 @@
+#taskTable > tbody > tr{
+  border-left :12px #ccc solid;
+}
+
+#taskTable > tbody > tr.current_sprint {
+  border-left :12px rgb(35, 95, 165) solid;
+}

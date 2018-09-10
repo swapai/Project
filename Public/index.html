@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link rel="stylesheet" href="css/tablesort.css">
-
+<link rel="stylesheet" href="css/dashboard.css">
     <style type="text/css">
       .placeholder{
         border: 2px solid rgb(50, 50, 100);
@@ -121,7 +121,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="task in tasks">
+          <tr v-for="task in tasks"
+          :class="task.current_sprint ?'current_sprint' : ''"
+          :key="task.id"
+          :id="'task- '+ task.id">
             <td>
               {{task.title}}
             </td>
@@ -143,7 +146,7 @@
             <td>
               {{task.hours_worked}}
             </td>
-            <td>
+            <td :class="completed_Class(task)">
               {{task.perc_complete}}
             </td>
           </tr>
