@@ -56,10 +56,13 @@ var dashboardApp= new Vue({
               console.log('Fetch error');
               console.log(err);
             })
+        },
+        gotoTask :function(tId){
+          window.location = 'task.html?taskId=' +tId;
         }
 
   },
-  mounted(){
+  created(){
     this.fetch_Tasks();
   }
 });
