@@ -1,5 +1,5 @@
 <?php
 
-const DB_USER = 'root';
+const DB_USER = 'dashboard';
 const DB_PW   = 'kelleymsis';
-const DB_SERVER = 'dashboard';
+const DB_SERVER = 'root';
