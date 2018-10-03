@@ -27,17 +27,14 @@ var tasksApp = new Vue({
   },
   methods: {
     handleWorkForm(e) {
-      e.preventDefault();
+      if(this.workSpan<0){
+        console.error('Hours must be positive')
+      }
+      //build JSON to send
 
-      // TODO: Check validity
-
-      console.log(e);
-
-      // TODO: Calculate hours
-      // something like:  moment.duration(end.diff(startTime)).asHours();
-
-      //TODO: clone workForm
       const s = JSON.stringify(this.workForm);
+      console.log(s);
+      return;
       //TODO: POST to remote server
       // fetch(url,)
       // .then()
