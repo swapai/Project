@@ -71,7 +71,28 @@ var dashboardApp = new Vue({
       .catch( err => {
         console.log('PROJECT FETCH ERROR:');
         console.log(err);
-      })
+      },
+      fetchProjectWork (pid) {
+        fetch('api/workHours.php?projectId='+pid)
+        .then( response => response.json() )
+        .then( json => {
+          dashboardApp.workHours = json;
+          this.formatWorkHoursData();
+      } )
+        .catch( err => {
+          console.log('PROJECT FETCH ERROR:');
+          console.log(err);
+        })
+    },
+    formatWorkHoursData(){
+      this.workHours.forEach(
+        function(entry, index, arr){
+          entry.date = Date.parse(entry.date);
+          entry.hours = Date.parse(entry.hours);
+          entry.runningTotalHours = entry.hours + (index == 0 ? 0 : arr[index-1].runningTotalHours)
+        }
+      );
+      console.log(this.workHours);
     },
     gotoTask(tid) {
       // alert ('Clicked: ' + tid)
